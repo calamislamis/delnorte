@@ -8,100 +8,141 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(to top right, #fff7ed, #ffe4e6);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      font-family: 'DM Serif Display', serif;
+      overflow-x: hidden;
+      background: linear-gradient(to right, #fff7ed, #fef2f2);
     }
+
+    section {
+      min-width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      position: relative;
+    }
+
+    .section-container {
+      display: flex;
+      flex-direction: row;
+      width: 400vw;
+      height: 100vh;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+    }
+
     .highlight {
       color: #b91c1c;
     }
+
+    .video-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+
+    .overlay-text {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #7f1d1d;
+      max-width: 80%;
+      border-left: 8px solid #dc2626;
+    }
+
+    h1, h2 {
+      font-family: 'Staatliches', cursive;
+    }
   </style>
 </head>
-<body class="text-gray-900">
-  <!-- Header -->
-  <header class="text-center py-20 bg-red-700 text-white shadow-lg">
-    <h1 class="text-5xl font-black tracking-widest uppercase animate-fade-in">Del Norte</h1>
-    <p class="mt-2 text-lg">Estudio creativo independiente</p>
-  </header>
+<body>
+  <div class="section-container">
+    <!-- Sección 1: Intro -->
+    <section class="text-white flex items-center justify-center relative bg-black">
+      <video autoplay muted loop class="video-bg">
+        <source src="https://cdn.coverr.co/videos/coverr-mexican-guitarist-0255/1080p.mp4" type="video/mp4">
+      </video>
+      <div class="text-center px-6 z-10">
+        <h1 class="text-6xl font-black uppercase tracking-wide">Del Norte</h1>
+        <p class="text-xl mt-4">Estudio creativo independiente</p>
+      </div>
+    </section>
 
-  <!-- Manifiesto -->
-  <section id="manifiesto" class="py-24 px-8 bg-yellow-50 text-gray-900">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-4xl font-bold mb-8 border-b-4 border-red-700 inline-block">Nuestro Manifiesto</h2>
-      <p class="text-xl leading-loose" id="manifiestoTexto">
-        En <span class="highlight">Del Norte</span> no hacemos publicidad.<br />
-        Hacemos territorio. Hacemos memoria. Hacemos calle.<br />
-        Sabemos que la creatividad es una forma de resistencia, y también una forma de avanzar.<br />
-        No trabajamos para marcas, trabajamos con ellas, hombro a hombro, para dejar algo que importe.<br />
-        Somos música, imagen, palabra y movimiento. Somos <span class="highlight">norte</span>: dirección y raíz.<br /><br />
-        Por eso, cada campaña que creamos es una pieza única, una respuesta honesta al contexto, una provocación con propósito.
-      </p>
-    </div>
-  </section>
+    <!-- Sección 2: Manifiesto -->
+    <section class="bg-yellow-50 flex items-center justify-center px-10">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl font-bold mb-6 text-red-800">Nuestro Manifiesto</h2>
+        <p class="text-lg leading-loose">
+          En <span class="highlight">Del Norte</span> no hacemos publicidad.<br />
+          Hacemos territorio. Hacemos memoria. Hacemos calle.<br />
+          La creatividad es una forma de resistencia, y también una forma de avanzar.<br />
+          No trabajamos para marcas, trabajamos con ellas, hombro a hombro, para dejar algo que importe.<br />
+          Somos música, imagen, palabra y movimiento. Somos <span class="highlight">norte</span>: dirección y raíz.<br /><br />
+          Por eso, cada campaña que creamos es una pieza única, una respuesta honesta al contexto, una provocación con propósito.
+        </p>
+      </div>
+    </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="py-24 px-8 bg-white text-gray-800">
-    <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 border-b-4 border-red-700 inline-block">Contacto</h2>
-      <form class="mt-8 space-y-6">
-        <div>
-          <label class="block text-md font-medium">Nombre</label>
-          <input type="text" class="w-full border border-gray-400 rounded p-3" required />
-        </div>
-        <div>
-          <label class="block text-md font-medium">Correo electrónico</label>
-          <input type="email" class="w-full border border-gray-400 rounded p-3" required />
-        </div>
-        <div>
-          <label class="block text-md font-medium">Mensaje</label>
-          <textarea rows="4" class="w-full border border-gray-400 rounded p-3" required></textarea>
-        </div>
-        <button type="submit" class="bg-red-700 text-white py-3 px-6 rounded hover:bg-red-800 transition">
-          Enviar
-        </button>
-      </form>
-    </div>
-  </section>
+    <!-- Sección 3: Video Retro -->
+    <section class="relative bg-black text-white">
+      <video autoplay muted loop class="video-bg">
+        <source src="https://cdn.coverr.co/videos/coverr-partying-at-a-mexican-celebration-5010/1080p.mp4" type="video/mp4">
+      </video>
+      <div class="overlay-text">Lo nuestro no es nostalgia. Es identidad.</div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-center text-sm text-gray-600 py-8">
-    <p>&copy; 2025 Del Norte. Todos los derechos reservados.</p>
-  </footer>
+    <!-- Sección 4: Contacto -->
+    <section class="bg-white text-gray-900 flex items-center justify-center">
+      <div class="max-w-md w-full px-6">
+        <h2 class="text-3xl font-bold mb-4 border-b-4 border-red-700 inline-block">Contacto</h2>
+        <form class="mt-6 space-y-4">
+          <div>
+            <label class="block text-md font-medium">Nombre</label>
+            <input type="text" class="w-full border border-gray-300 rounded p-3" required />
+          </div>
+          <div>
+            <label class="block text-md font-medium">Correo electrónico</label>
+            <input type="email" class="w-full border border-gray-300 rounded p-3" required />
+          </div>
+          <div>
+            <label class="block text-md font-medium">Mensaje</label>
+            <textarea rows="4" class="w-full border border-gray-300 rounded p-3" required></textarea>
+          </div>
+          <button type="submit" class="bg-red-700 text-white py-3 px-5 rounded hover:bg-red-800 transition">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
 
-  <!-- GSAP Animations -->
+  <!-- Animación con GSAP -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from("header h1", {
-      opacity: 0,
-      y: -50,
-      duration: 1.5,
-      ease: "power2.out"
-    });
-
-    gsap.from("#manifiestoTexto", {
-      scrollTrigger: {
-        trigger: "#manifiestoTexto",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      },
-      opacity: 0,
-      y: 100,
-      duration: 1.2,
-      ease: "power3.out"
-    });
-
-    gsap.from("form", {
-      scrollTrigger: {
-        trigger: "form",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      },
-      opacity: 0,
-      y: 80,
-      duration: 1.2,
-      ease: "power2.out"
+    document.querySelectorAll("section").forEach((sec) => {
+      gsap.from(sec, {
+        opacity: 0,
+        x: 100,
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: sec,
+          start: "left center",
+          end: "right center",
+          scrub: true
+        }
+      });
     });
   </script>
 </body>
