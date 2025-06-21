@@ -6,48 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Del Norte</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to top right, #fff7ed, #ffe4e6);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .highlight {
+      color: #b91c1c;
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="text-gray-900">
   <!-- Header -->
-  <header class="bg-red-700 text-white py-6 px-4 text-center">
-    <h1 class="text-4xl font-extrabold tracking-wide">Del Norte</h1>
-    <p class="text-sm mt-2">Estudio creativo independiente</p>
+  <header class="text-center py-20 bg-red-700 text-white shadow-lg">
+    <h1 class="text-5xl font-black tracking-widest uppercase animate-fade-in">Del Norte</h1>
+    <p class="mt-2 text-lg">Estudio creativo independiente</p>
   </header>
 
   <!-- Manifiesto -->
-  <section id="manifiesto" class="py-16 px-6 bg-yellow-50 text-gray-900">
+  <section id="manifiesto" class="py-24 px-8 bg-yellow-50 text-gray-900">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4 border-b-4 border-red-700 inline-block">Nuestro Manifiesto</h2>
-      <p class="text-lg leading-relaxed mt-6">
-        En Del Norte no hacemos publicidad.<br />
+      <h2 class="text-4xl font-bold mb-8 border-b-4 border-red-700 inline-block">Nuestro Manifiesto</h2>
+      <p class="text-xl leading-loose" id="manifiestoTexto">
+        En <span class="highlight">Del Norte</span> no hacemos publicidad.<br />
         Hacemos territorio. Hacemos memoria. Hacemos calle.<br />
         Sabemos que la creatividad es una forma de resistencia, y también una forma de avanzar.<br />
         No trabajamos para marcas, trabajamos con ellas, hombro a hombro, para dejar algo que importe.<br />
-        Somos música, imagen, palabra y movimiento. Somos norte: dirección y raíz.<br />
-        <br />
+        Somos música, imagen, palabra y movimiento. Somos <span class="highlight">norte</span>: dirección y raíz.<br /><br />
         Por eso, cada campaña que creamos es una pieza única, una respuesta honesta al contexto, una provocación con propósito.
       </p>
     </div>
   </section>
 
   <!-- Contacto -->
-  <section id="contacto" class="py-16 px-6 bg-white text-gray-800">
+  <section id="contacto" class="py-24 px-8 bg-white text-gray-800">
     <div class="max-w-xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4 border-b-4 border-red-700 inline-block">Contacto</h2>
-      <form class="mt-6 space-y-4">
+      <h2 class="text-3xl font-bold mb-6 border-b-4 border-red-700 inline-block">Contacto</h2>
+      <form class="mt-8 space-y-6">
         <div>
-          <label class="block text-sm font-medium">Nombre</label>
-          <input type="text" class="w-full border border-gray-300 rounded p-2" required />
+          <label class="block text-md font-medium">Nombre</label>
+          <input type="text" class="w-full border border-gray-400 rounded p-3" required />
         </div>
         <div>
-          <label class="block text-sm font-medium">Correo electrónico</label>
-          <input type="email" class="w-full border border-gray-300 rounded p-2" required />
+          <label class="block text-md font-medium">Correo electrónico</label>
+          <input type="email" class="w-full border border-gray-400 rounded p-3" required />
         </div>
         <div>
-          <label class="block text-sm font-medium">Mensaje</label>
-          <textarea rows="4" class="w-full border border-gray-300 rounded p-2" required></textarea>
+          <label class="block text-md font-medium">Mensaje</label>
+          <textarea rows="4" class="w-full border border-gray-400 rounded p-3" required></textarea>
         </div>
-        <button type="submit" class="bg-red-700 text-white py-2 px-4 rounded hover:bg-red-800">
+        <button type="submit" class="bg-red-700 text-white py-3 px-6 rounded hover:bg-red-800 transition">
           Enviar
         </button>
       </form>
@@ -55,8 +65,44 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-100 text-center text-sm text-gray-500 py-6">
+  <footer class="bg-gray-100 text-center text-sm text-gray-600 py-8">
     <p>&copy; 2025 Del Norte. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- GSAP Animations -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("header h1", {
+      opacity: 0,
+      y: -50,
+      duration: 1.5,
+      ease: "power2.out"
+    });
+
+    gsap.from("#manifiestoTexto", {
+      scrollTrigger: {
+        trigger: "#manifiestoTexto",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      },
+      opacity: 0,
+      y: 100,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.from("form", {
+      scrollTrigger: {
+        trigger: "form",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      },
+      opacity: 0,
+      y: 80,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+  </script>
 </body>
 </html>
