@@ -5,29 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Del Norte — Estudio Creativo</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .parallax-bg {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      will-change: background-position;
+    }
+
+    /* Para que el overlay no se vea tan duro en pantallas grandes */
+    .overlay-box {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
 </head>
+
 <body class="bg-gray-900 text-white font-sans">
+
   <!-- Hero / Manifiesto -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-5xl md:text-6xl font-bold mb-4">SOMOS DEL NORTE</h1>
-    <p class="text-lg md:text-xl max-w-2xl text-gray-300">Un estudio creativo que mezcla estrategia, creatividad y oficio para construir marcas con alma y dirección. Pensamos distinto, y eso nos permite ver al país con otros ojos.</p>
-    <button class="mt-10 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full text-white font-semibold">Conversemos</button>
+  <section
+    class="h-screen flex flex-col justify-center items-center text-center px-6 parallax-bg"
+    style="background-image: url('img/hero-del-norte.jpg');"
+    data-parallax="0.3"
+  >
+    <div class="overlay-box p-10 rounded-xl max-w-3xl">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">SOMOS DEL NORTE</h1>
+      <p class="text-lg md:text-xl text-gray-300">
+        Un estudio creativo que mezcla estrategia, creatividad y oficio para construir marcas con alma y dirección.
+        Pensamos distinto, y eso nos permite ver al país con otros ojos.
+      </p>
+      <button class="mt-10 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full text-white font-semibold">
+        Conversemos
+      </button>
+    </div>
   </section>
 
   <!-- Dupla fundadora -->
-  <section class="grid md:grid-cols-2 gap-8 px-10 py-20 bg-gray-800">
-    <div>
+  <section
+    class="grid md:grid-cols-2 gap-8 px-10 py-20 parallax-bg"
+    style="background-image: url('img/dupla-del-norte.jpg');"
+    data-parallax="0.15"
+  >
+    <div class="overlay-box p-6 rounded-xl">
       <h2 class="text-3xl font-bold mb-2">Cristóbal Zamora — El Calama</h2>
-      <p class="text-gray-400">Ingeniero Comercial y estratega creativo. Más de 20 años moviendo ideas entre marketing, estrategia y cultura. Make it Real.</p>
+      <p class="text-gray-200">
+        Ingeniero Comercial y estratega creativo. Más de 20 años moviendo ideas entre marketing, estrategia y cultura. Make it Real.
+      </p>
     </div>
-    <div>
+    <div class="overlay-box p-6 rounded-xl">
       <h2 class="text-3xl font-bold mb-2">Seba del Río — El Iquique</h2>
-      <p class="text-gray-400">Publicista y contador de historias por instinto. Transforma ideas en cultura desde la rebeldía creativa. Make it Creative.</p>
+      <p class="text-gray-200">
+        Publicista y contador de historias por instinto. Transforma ideas en cultura desde la rebeldía creativa. Make it Creative.
+      </p>
     </div>
   </section>
 
-  <!-- Filosofía -->
-  <section class="py-24 px-8 text-center">
+  <!-- Filosofía (sin parallax, para descansar la vista) -->
+  <section class="py-24 px-8 text-center bg-gray-900">
     <h2 class="text-4xl font-bold mb-12">Nuestra Filosofía</h2>
     <div class="space-y-10 max-w-3xl mx-auto">
       <div>
@@ -45,39 +80,45 @@
     </div>
   </section>
 
-  <!-- Casos -->
-  <section class="bg-gray-800 py-24 px-8">
-    <h2 class="text-4xl font-bold text-center mb-12">Casos</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-gray-700 hover:bg-purple-700 p-6 rounded-xl transition">
-        <h3 class="text-2xl font-semibold">WOM – La Inmensa Minoría</h3>
-        <p class="text-gray-300">De campaña de fin de año a manifiesto social.</p>
-      </div>
-      <div class="bg-gray-700 hover:bg-purple-700 p-6 rounded-xl transition">
-        <h3 class="text-2xl font-semibold">Samsung – La Guarida</h3>
-        <p class="text-gray-300">El ritual perdido de ver fútbol con amigos.</p>
-      </div>
-      <div class="bg-gray-700 hover:bg-purple-700 p-6 rounded-xl transition">
-        <h3 class="text-2xl font-semibold">SURA – Verdades Incómodas</h3>
-        <p class="text-gray-300">Lo incómodo también transforma.</p>
-      </div>
-      <div class="bg-gray-700 hover:bg-purple-700 p-6 rounded-xl transition">
-        <h3 class="text-2xl font-semibold">Autoplaza – Adopta un Auto</h3>
-        <p class="text-gray-300">Transformamos la compra en vínculo.</p>
-      </div>
-      <div class="bg-gray-700 hover:bg-purple-700 p-6 rounded-xl transition">
-        <h3 class="text-2xl font-semibold">Universidad Central – No Creo</h3>
-        <p class="text-gray-300">Creer en ti, no en los discursos.</p>
-      </div>
-      <div class="bg-gray-700 hover:bg-purple-700 p-6 rounded-xl transition">
-        <h3 class="text-2xl font-semibold">Abastible – Mantengamos la Energía</h3>
-        <p class="text-gray-300">Acciones concretas, no épica vacía.</p>
+  <!-- Casos (opcional parallax muy suave) -->
+  <section
+    class="py-24 px-8 bg-gray-800 parallax-bg"
+    style="background-image: url('img/casos-del-norte.jpg');"
+    data-parallax="0.1"
+  >
+    <div class="bg-black bg-opacity-60 p-8 rounded-2xl max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12">Casos</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-700 bg-opacity-80 hover:bg-purple-700 p-6 rounded-xl transition">
+          <h3 class="text-2xl font-semibold">WOM – La Inmensa Minoría</h3>
+          <p class="text-gray-300">De campaña de fin de año a manifiesto social.</p>
+        </div>
+        <div class="bg-gray-700 bg-opacity-80 hover:bg-purple-700 p-6 rounded-xl transition">
+          <h3 class="text-2xl font-semibold">Samsung – La Guarida</h3>
+          <p class="text-gray-300">El ritual perdido de ver fútbol con amigos.</p>
+        </div>
+        <div class="bg-gray-700 bg-opacity-80 hover:bg-purple-700 p-6 rounded-xl transition">
+          <h3 class="text-2xl font-semibold">SURA – Verdades Incómodas</h3>
+          <p class="text-gray-300">Lo incómodo también transforma.</p>
+        </div>
+        <div class="bg-gray-700 bg-opacity-80 hover:bg-purple-700 p-6 rounded-xl transition">
+          <h3 class="text-2xl font-semibold">Autoplaza – Adopta un Auto</h3>
+          <p class="text-gray-300">Transformamos la compra en vínculo.</p>
+        </div>
+        <div class="bg-gray-700 bg-opacity-80 hover:bg-purple-700 p-6 rounded-xl transition">
+          <h3 class="text-2xl font-semibold">Universidad Central – No Creo</h3>
+          <p class="text-gray-300">Creer en ti, no en los discursos.</p>
+        </div>
+        <div class="bg-gray-700 bg-opacity-80 hover:bg-purple-700 p-6 rounded-xl transition">
+          <h3 class="text-2xl font-semibold">Abastible – Mantengamos la Energía</h3>
+          <p class="text-gray-300">Acciones concretas, no épica vacía.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Método -->
-  <section class="py-24 px-8 text-center">
+  <section class="py-24 px-8 text-center bg-gray-900">
     <h2 class="text-4xl font-bold mb-12">Nuestro Método</h2>
     <div class="grid md:grid-cols-5 gap-4">
       <div class="bg-gray-800 p-6 rounded-xl"><p>Estrategia & Relato</p></div>
@@ -90,12 +131,18 @@
   </section>
 
   <!-- Manifiesto final -->
-  <section class="bg-gradient-to-b from-purple-800 to-gray-900 py-24 text-center px-6">
-    <blockquote class="text-2xl md:text-3xl font-light max-w-3xl mx-auto mb-10">
-      “La transformación no se logra con discursos bonitos, sino enfrentando las verdades incómodas y cuidando lo esencial.”
-    </blockquote>
-    <p class="text-gray-400 mb-10">Del Norte — Estudio Creativo</p>
-    <p class="text-lg font-semibold">No buscamos clientes. Queremos cómplices.</p>
+  <section
+    class="py-24 text-center px-6 parallax-bg"
+    style="background-image: url('img/manifiesto-del-norte.jpg');"
+    data-parallax="0.2"
+  >
+    <div class="overlay-box p-10 rounded-xl max-w-3xl mx-auto">
+      <blockquote class="text-2xl md:text-3xl font-light mb-10">
+        “La transformación no se logra con discursos bonitos, sino enfrentando las verdades incómodas y cuidando lo esencial.”
+      </blockquote>
+      <p class="text-gray-400 mb-10">Del Norte — Estudio Creativo</p>
+      <p class="text-lg font-semibold">No buscamos clientes. Queremos cómplices.</p>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -103,5 +150,20 @@
     <p>Pensamos distinto. Y eso nos deja ver lo que otros no ven.</p>
     <p class="mt-2">© 2025 Del Norte. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Parallax suave
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      const sections = document.querySelectorAll('[data-parallax]');
+
+      sections.forEach(section => {
+        const speed = parseFloat(section.getAttribute('data-parallax')) || 0.2;
+        const offset = scrolled * speed * -1;
+        section.style.backgroundPosition = `center ${offset}px`;
+      });
+    });
+  </script>
+
 </body>
 </html>
